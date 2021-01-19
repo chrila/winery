@@ -1,0 +1,19 @@
+<h1>Wines</h1>
+<table>
+  <thead>
+    <tr>
+      <td>Id</td>
+      <td>Name</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @wines.each do |g| %>
+      <tr>
+        <td><%= g.id %></td>
+        <td><%= g.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add wine', new_wine_path %>

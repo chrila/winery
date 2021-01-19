@@ -1,0 +1,19 @@
+<h1>Grapes</h1>
+<table>
+  <thead>
+    <tr>
+      <td>Id</td>
+      <td>Name</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grapes.each do |g| %>
+      <tr>
+        <td><%= g.id %></td>
+        <td><%= g.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add grape', new_grape_path %>
