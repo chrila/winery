@@ -4,6 +4,7 @@
     <tr>
       <td>Id</td>
       <td>Name</td>
+      <td></td>
     </tr>
   </thead>
   <tbody>
@@ -11,6 +12,11 @@
       <tr>
         <td><%= g.id %></td>
         <td><%= g.name %></td>
+        <td>
+          <%= link_to 'Show', g %>
+          <%= link_to 'Edit', edit_grape_path(g) %>
+          <%= link_to 'Delete', g, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
