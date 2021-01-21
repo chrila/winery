@@ -2,7 +2,7 @@ class GrapesController < ApplicationController
   before_action :set_grape, only: [:show, :edit, :update, :destroy]
 
   def index
-    @grapes = Grape.all
+    @grapes = Grape.all.order(:id)
   end
 
   def show

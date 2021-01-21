@@ -2,7 +2,7 @@ class WinesController < ApplicationController
   before_action :set_wine, only: [:show, :edit, :update, :destroy]
 
   def index
-    @wines = Wine.includes(:grapes).all
+    @wines = Wine.all.order(:id)
   end
 
   def show
@@ -10,6 +10,7 @@ class WinesController < ApplicationController
 
   def new
     @wine = Wine.new
+    @wine.grape_wines.build.build_grape
   end
 
   def edit
@@ -50,7 +51,7 @@ class WinesController < ApplicationController
   private
 
   def wine_params
-    params.require(:wine).permit(:name)
+    params.require(:wine).permit(:name, grape_wines_attributes: [:percentage, :_destroy, :id, :grape_id])
   end
 
   def set_wine

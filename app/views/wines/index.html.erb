@@ -4,6 +4,7 @@
     <tr>
       <td>Id</td>
       <td>Name</td>
+      <td>Grapes</td>
       <td></td>
     </tr>
   </thead>
@@ -12,6 +13,13 @@
       <tr>
         <td><%= w.id %></td>
         <td><%= w.name %></td>
+        <td>
+          <ul>
+            <% w.grape_wines.ordered.each do |gw| %>
+              <li><%= gw %></li>
+            <% end %>
+          </ul>
+        </td>
         <td>
           <%= link_to 'Show', w %>
           <%= link_to 'Edit', edit_wine_path(w) %>

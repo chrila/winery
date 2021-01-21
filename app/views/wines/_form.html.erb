@@ -4,6 +4,16 @@
     <%= f.text_field :name %>
   </div>
 
+  <h2>Grapes</h2>
+  <div id="grape_wines">
+    <%= f.fields_for :grape_wines do |grape_wine_form| %>
+      <%= render 'grape_wine_fields', f: grape_wine_form %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add grape', f, :grape_wines %>
+    </div>
+  </div>
+
   <div>
     <%= f.submit %>
   </div>

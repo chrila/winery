@@ -57,3 +57,5 @@ end
 
 # use postgres
 gem 'pg'
+# for nested forms
+gem 'cocoon'
