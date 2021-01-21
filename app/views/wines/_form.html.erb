@@ -1,4 +1,15 @@
 <%= form_with(model: wine, local: true) do |f| %>
+    <% if wine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wine.errors.count, "error") %> prohibited this wine from being saved:</h2>
+      <ul>
+      <% wine.errors.each do |e| %>
+        <li><%= e.attribute %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
