@@ -15,7 +15,7 @@
         <td>
           <%= link_to 'Show', g %>
           <%= link_to 'Edit', edit_grape_path(g) %>
-          <%= link_to 'Delete', g, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= button_to 'Delete', g, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
