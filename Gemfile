@@ -59,3 +59,5 @@ end
 gem 'pg'
 # for nested forms
 gem 'cocoon'
+# for authenticaion
+gem 'devise'
