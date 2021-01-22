@@ -1,5 +1,6 @@
 class WinesController < ApplicationController
   before_action :set_wine, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @wines = Wine.all.order(:id)
