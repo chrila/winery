@@ -1,16 +1,16 @@
 <h1>Grapes</h1>
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <td>Id</td>
-      <td>Name</td>
-      <td></td>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <% @grapes.each do |g| %>
       <tr>
-        <td><%= g.id %></td>
+        <th scope="row"><%= g.id %></th>
         <td><%= g.name %></td>
         <td class="button-cell">
           <%= button_to 'Show', g, method: :get, class: 'btn btn-primary mr-1' %>
