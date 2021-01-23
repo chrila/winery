@@ -15,6 +15,16 @@
  *= require_self
  */
 
- .button-cell {
-   display: inline-flex;
+.button-cell {
+  display: inline-flex;
+}
+
+.navbar-separator {
+  border-left: 1px solid silver;
+}
+
+@media (max-width: 768px) {
+  .navbar-separator {
+    border-left: none;
  }
+}
