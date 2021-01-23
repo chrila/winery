@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :wines
   resources :grapes
+  resources :sommeliers
 
   root 'wines#index'
 end

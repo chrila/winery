@@ -1,0 +1,41 @@
+<%= form_with(model: sommelier, local: true) do |f| %>
+  <% if sommelier.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sommelier.errors.count, "error") %> prohibited this sommelier from being saved:</h2>
+      <ul>
+      <% sommelier.errors.full_messages.each do |e| %>
+        <li><%= e %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :age %>
+    <%= f.text_field :age, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :nationality %>
+    <%= f.text_field :nationality, class: 'form-control' %>
+  </div>
+
+  <h2>Journals</h2>
+  <div id="journal_sommeliers" class="form-group">
+    <%= f.fields_for :journal_sommeliers do |journal_sommelier_form| %>
+      <%= render 'journal_sommelier_fields', f: journal_sommelier_form %>
+    <% end %>
+    <div class="links form-inline">
+      <%= link_to_add_association 'add journal', f, :journal_sommeliers %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

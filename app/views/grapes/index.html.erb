@@ -13,7 +13,6 @@
         <th scope="row"><%= g.id %></th>
         <td><%= g.name %></td>
         <td class="button-cell">
-          <%= button_to 'Show', g, method: :get, class: 'btn btn-primary mr-1' %>
           <%= button_to 'Edit', edit_grape_path(g), method: :get, class: 'btn btn-secondary mr-1' %>
           <%= button_to 'Delete', g, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary mr-1' %>
         </td>

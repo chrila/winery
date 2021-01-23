@@ -5,14 +5,26 @@
   <%= @wine.name %>
 </p>
 
-<p>
-  <strong>Grapes:</strong>
+<strong>Grapes</strong>
+<ul>
+<% @wine.grape_wines.ordered.each do |gw| %>
+  <li><%= gw %></li>
+<% end %>
+</ul>
+
+<h2>Evaluations</h2>
+<% @wine.evaluations.each do |e| %>
+  <p>
+    <strong>Score:</strong>
+    <%= e.score %>
+  </p>
+  <strong>Sommeliers</strong>
   <ul>
-    <% @wine.grape_wines.ordered.each do |gw| %>
-      <li><%= gw %></li>
-    <% end %>
+  <% e.sommeliers.ordered.each do |s| %>
+    <li><%= s %></li>
+  <% end %>
   </ul>
-</p>
+<% end %>
 
 <%= link_to 'Edit', edit_wine_path(@wine) %> <br />
 <%= link_to '<< Wines', wines_path %>

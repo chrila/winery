@@ -1,0 +1,11 @@
+<div class="nested-fields form-inline">
+  <div class="form-group mr-sm-3 mb-2">
+    <%= f.label :journal, class: 'mr-sm-3' %>
+    <%= f.text_field :journal, class: 'form-control' %>
+  </div>
+  <div class="form-group mr-sm-3 mb-2">
+    <%= f.label :role %>
+    <%= f.select :role, JournalSommelier.roles.keys, {}, class: 'custom-select mx-sm-3' %>
+  </div>
+  <%= link_to_remove_association "remove journal", f, class: 'mb-2' %>
+</div>

@@ -1,0 +1,26 @@
+<h1 class="display-4 my-4">Sommelier</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sommelier.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @sommelier.age %>
+</p>
+
+<p>
+  <strong>Nationality:</strong>
+  <%= @sommelier.nationality %>
+</p>
+
+<h2>Work</h2>
+<ul>
+  <% @sommelier.journal_sommeliers.each do |j| %>
+    <li><%= j %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_sommelier_path(@sommelier) %> <br />
+<%= link_to '<< Sommeliers', sommeliers_path %>

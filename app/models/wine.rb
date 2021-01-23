@@ -6,6 +6,7 @@ class Wine < ApplicationRecord
   validates_presence_of :name
 
   accepts_nested_attributes_for :grape_wines, allow_destroy: true
+  accepts_nested_attributes_for :evaluations, allow_destroy: true
 
   before_save :check_percentages
 

@@ -25,6 +25,22 @@
     </div>
   </div>
 
+  <h2>Evaluation</h2>
+  <%= f.fields_for :evaluations do |eval_form| %>
+    <%= eval_form.label :score %>
+    <%= eval_form.text_field :score %>
+
+    <h4>Sommeliers</h4>
+    <div id="evaluation_sommeliers" class="form-group">
+      <%= eval_form.fields_for :evaluation_sommeliers do |sommelier_form| %>
+        <%= render 'evaluation_sommelier_fields', f: sommelier_form %>
+      <% end %>
+      <div class="links form-inline">
+        <%= link_to_add_association 'add sommelier', eval_form, :evaluation_sommeliers %>
+      </div>
+    </div>
+  <% end %>
+
   <div>
     <%= f.submit class: 'btn btn-primary' %>
   </div>

@@ -26,5 +26,11 @@
 @media (max-width: 768px) {
   .navbar-separator {
     border-left: none;
- }
+  }
+}
+
+td ul {
+  list-style-type: none;
+  margin-bottom: 0;
+  padding-left: 0;
 }

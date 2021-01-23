@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_23_151554) do
+ActiveRecord::Schema.define(version: 2021_01_23_162019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "evaluation_sommeliers", force: :cascade do |t|
+    t.bigint "evaluation_id", null: false
+    t.bigint "sommelier_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["evaluation_id"], name: "index_evaluation_sommeliers_on_evaluation_id"
+    t.index ["sommelier_id"], name: "index_evaluation_sommeliers_on_sommelier_id"
+  end
 
   create_table "evaluations", force: :cascade do |t|
     t.bigint "wine_id", null: false
@@ -21,11 +30,6 @@ ActiveRecord::Schema.define(version: 2021_01_23_151554) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["wine_id"], name: "index_evaluations_on_wine_id"
-  end
-
-  create_table "evaluations_sommeliers", id: false, force: :cascade do |t|
-    t.bigint "evaluation_id", null: false
-    t.bigint "sommelier_id", null: false
   end
 
   create_table "grape_wines", force: :cascade do |t|
@@ -81,6 +85,8 @@ ActiveRecord::Schema.define(version: 2021_01_23_151554) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "evaluation_sommeliers", "evaluations"
+  add_foreign_key "evaluation_sommeliers", "sommeliers"
   add_foreign_key "evaluations", "wines"
   add_foreign_key "grape_wines", "grapes"
   add_foreign_key "grape_wines", "wines"

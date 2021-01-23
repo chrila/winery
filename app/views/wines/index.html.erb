@@ -5,6 +5,8 @@
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Grapes</th>
+      <th scope="col">Score</th>
+      <th scope="col">Sommeliers</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -20,8 +22,21 @@
             <% end %>
           </ul>
         </td>
+        <td>
+          <% w.evaluations.each do |e| %>
+            <%= e.score %>
+          <% end %>
+        </td>
+        <td>
+          <ul>
+            <% w.evaluations.each do |e| %>
+              <% e.sommeliers.ordered.each do |s| %>
+                <li><%= s %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </td>
         <td class="button-cell">
-          <%= button_to 'Show', w, method: :get, class: 'btn btn-primary mr-1' %>
           <% if current_user.admin? %>
             <%= button_to 'Edit', edit_wine_path(w), method: :get, class: 'btn btn-secondary mr-1' %>
             <%= button_to 'Delete', w, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary mr-1' %>
