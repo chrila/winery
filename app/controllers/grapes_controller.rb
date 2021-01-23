@@ -1,5 +1,6 @@
 class GrapesController < ApplicationController
   before_action :set_grape, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @grapes = Grape.all.order(:id)
