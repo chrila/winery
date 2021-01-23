@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_192606) do
+ActiveRecord::Schema.define(version: 2021_01_23_151554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "evaluations", force: :cascade do |t|
+    t.bigint "wine_id", null: false
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["wine_id"], name: "index_evaluations_on_wine_id"
+  end
+
+  create_table "evaluations_sommeliers", id: false, force: :cascade do |t|
+    t.bigint "evaluation_id", null: false
+    t.bigint "sommelier_id", null: false
+  end
 
   create_table "grape_wines", force: :cascade do |t|
     t.bigint "wine_id", null: false
@@ -27,6 +40,23 @@ ActiveRecord::Schema.define(version: 2021_01_22_192606) do
 
   create_table "grapes", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "journal_sommeliers", force: :cascade do |t|
+    t.bigint "sommelier_id", null: false
+    t.string "journal"
+    t.integer "role"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sommelier_id"], name: "index_journal_sommeliers_on_sommelier_id"
+  end
+
+  create_table "sommeliers", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.string "nationality"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -51,6 +81,8 @@ ActiveRecord::Schema.define(version: 2021_01_22_192606) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "evaluations", "wines"
   add_foreign_key "grape_wines", "grapes"
   add_foreign_key "grape_wines", "wines"
+  add_foreign_key "journal_sommeliers", "sommeliers"
 end

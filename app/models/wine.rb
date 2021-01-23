@@ -1,6 +1,7 @@
 class Wine < ApplicationRecord
   has_many :grape_wines, dependent: :destroy
   has_many :grapes, through: :grape_wines
+  has_many :evaluations
 
   validates_presence_of :name
 
