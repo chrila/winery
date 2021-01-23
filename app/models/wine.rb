@@ -10,7 +10,7 @@ class Wine < ApplicationRecord
 
   def check_percentages
     if grape_wines.map(&:percentage).sum != 100
-      errors.add("sum of percentages has to be 100")
+      errors.add(:base, "sum of percentages has to be 100")
       throw :abort
     end
   end

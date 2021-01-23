@@ -3,8 +3,8 @@
     <div id="error_explanation">
       <h2><%= pluralize(wine.errors.count, "error") %> prohibited this wine from being saved:</h2>
       <ul>
-      <% wine.errors.each do |e| %>
-        <li><%= e.attribute %></li>
+      <% wine.errors.full_messages.each do |e| %>
+        <li><%= e %></li>
       <% end %>
       </ul>
     </div>

@@ -1,4 +1,15 @@
 <%= form_with(model: grape, local: true) do |f| %>
+  <% if grape.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(grape.errors.count, "error") %> prohibited this grape from being saved:</h2>
+      <ul>
+      <% grape.errors.full_messages.each do |e| %>
+        <li><%= e %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
