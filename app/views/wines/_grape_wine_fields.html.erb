@@ -1,10 +1,10 @@
-<div class="nested-fields">
-  <div class="field">
-      <%= f.label :percentage %>
-      <%= f.text_field :percentage %>
+<div class="nested-fields form-inline">
+  <div class="form-group mr-sm-3 mb-2">
+      <%= f.text_field :percentage, class: 'form-control mr-sm-3' %>
+      <%= f.label :percentage, '%' %>
   </div>
 
-  <%= f.select :grape_id, grapes_for_select %>
+  <%= f.select :grape_id, grapes_for_select, {}, class: 'custom-select mx-sm3 mb-2' %>
 
-  <%= link_to_remove_association "remove grape", f %>
+  <%= link_to_remove_association "remove grape", f, class: 'mx-sm-3 mb-2' %>
 </div>

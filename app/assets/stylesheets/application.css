@@ -14,3 +14,7 @@
  *= require_tree .
  *= require_self
  */
+
+ .button-cell {
+   display: inline-flex;
+ }

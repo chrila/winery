@@ -10,7 +10,7 @@ import "channels"
 import "cocoon-js"
 import "bootstrap"
 
-require("@nathanvda/cocoon")
+//require("@nathanvda/cocoon")
 
 Rails.start()
 Turbolinks.start()

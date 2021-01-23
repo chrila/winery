@@ -10,22 +10,22 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
 
   <h2>Grapes</h2>
-  <div id="grape_wines">
+  <div id="grape_wines" class="form-group">
     <%= f.fields_for :grape_wines do |grape_wine_form| %>
       <%= render 'grape_wine_fields', f: grape_wine_form %>
     <% end %>
-    <div class="links">
+    <div class="links form-inline">
       <%= link_to_add_association 'add grape', f, :grape_wines %>
     </div>
   </div>
 
   <div>
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

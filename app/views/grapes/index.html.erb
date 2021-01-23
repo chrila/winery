@@ -12,10 +12,10 @@
       <tr>
         <td><%= g.id %></td>
         <td><%= g.name %></td>
-        <td>
-          <%= link_to 'Show', g %>
-          <%= link_to 'Edit', edit_grape_path(g) %>
-          <%= button_to 'Delete', g, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <td class="button-cell">
+          <%= button_to 'Show', g, method: :get, class: 'btn btn-primary mr-1' %>
+          <%= button_to 'Edit', edit_grape_path(g), method: :get, class: 'btn btn-secondary mr-1' %>
+          <%= button_to 'Delete', g, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary mr-1' %>
         </td>
       </tr>
     <% end %>
