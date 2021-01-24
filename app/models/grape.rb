@@ -2,7 +2,7 @@ class Grape < ApplicationRecord
   has_many :grape_wines, dependent: :destroy
   has_many :wines, through: :grape_wines
 
-  validates_presence_of :name
+  validates :name, presence: true, uniqueness: true
 
   scope :ordered, -> { order(:name) }
 
