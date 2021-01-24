@@ -11,9 +11,11 @@ class Wine < ApplicationRecord
   before_save :check_percentages
 
   def check_percentages
-    if grape_wines.map(&:percentage).sum != 100
-      errors.add(:base, "sum of percentages has to be 100")
-      throw :abort
+    if grape_wines.count > 0
+      if grape_wines.map(&:percentage).sum != 100
+        errors.add(:base, "sum of percentages has to be 100")
+        throw :abort
+      end
     end
   end
 end

@@ -61,3 +61,5 @@ gem 'pg'
 gem 'cocoon'
 # for authenticaion
 gem 'devise'
+# for db seed
+gem 'faker'
