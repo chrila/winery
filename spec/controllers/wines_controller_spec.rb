@@ -21,6 +21,12 @@ RSpec.describe WinesController, type: :controller do
       get :index
       expect(response).to render_template('index')
     end
+
+    it 'renderes the show template' do
+      wine = Wine.create(name: 'Mountain Blend')
+      get :show, params: { id: wine.id }
+      expect(response).to render_template('show')
+    end
   end
 
 end
