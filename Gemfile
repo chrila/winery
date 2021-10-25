@@ -68,3 +68,6 @@ gem 'cocoon'
 gem 'devise'
 # for db seed
 gem 'faker'
+# stimulus js framework
+gem 'stimulus-rails'
+

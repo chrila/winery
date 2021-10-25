@@ -34,3 +34,19 @@ td ul {
   margin-bottom: 0;
   padding-left: 0;
 }
+
+.wine-form-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: end;
+  gap: 1rem;
+}
+
+.wine-form-row > * {
+  flex-basis: content;
+}
+
+.evaluation-textfield {
+  max-width: 6rem;
+}

@@ -27,11 +27,14 @@
 
   <h2>Evaluation</h2>
   <%= f.fields_for :evaluations do |eval_form| %>
-    <%= eval_form.label :score %>
-    <%= eval_form.text_field :score %>
+    <div id="evaluation" class="form-group wine-form-row" data-controller="evaluation">
+      <%= eval_form.label :score %>
+      <%= eval_form.number_field :score, type: 'range', class: 'form-control form-range evaluation-slider', data: { "evaluation-target": "slider", "action": "input->evaluation#updateTextfieldValue" } %>
+      <%= eval_form.number_field :score, step: :any, min: 0, max: 100, class: 'form-control evaluation-textfield', data: { "evaluation-target": "textfield", "action": "input->evaluation#updateSliderValue" } %>
+    </div>
 
-    <h4>Sommeliers</h4>
     <div id="evaluation_sommeliers" class="form-group">
+      <h4>Sommeliers</h4>
       <%= eval_form.fields_for :evaluation_sommeliers do |sommelier_form| %>
         <%= render 'evaluation_sommelier_fields', f: sommelier_form %>
       <% end %>

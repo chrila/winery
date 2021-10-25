@@ -1,6 +1,6 @@
 <div class="nested-fields form-inline">
   <div class="form-group mr-sm-3 mb-2">
-      <%= f.text_field :percentage, class: 'form-control mr-sm-3' %>
+      <%= f.number_field :percentage, min: 0, max: 100, class: 'form-control mr-sm-3' %>
       <%= f.label :percentage, '%' %>
   </div>
 

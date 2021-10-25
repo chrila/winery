@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "cocoon-js"
 import "bootstrap"
+import "controllers"
 
 //require("@nathanvda/cocoon")
 
